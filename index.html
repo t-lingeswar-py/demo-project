@@ -1,51 +1,130 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Spider-Man Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Spider-Man Themed Portfolio — Single Page</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <nav class="container">
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
   <header>
-    <nav>
-      <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-    <h1 class="spidey-title">Your Name</h1>
-    <p class="tagline">"With great code comes great responsibility"</p>
-    <div class="web"></div>
+    <!-- decorative web layers (SVGs) -->
+    <div class="web-layer" aria-hidden="true">
+      <!-- big center web -->
+      <svg class="web" viewBox="0 0 200 200" preserveAspectRatio="xMidYMid meet">
+        <g stroke="white" stroke-opacity=".9" stroke-width="0.6" fill="none">
+          <circle cx="100" cy="100" r="70" stroke-opacity=".12" />
+          <circle cx="100" cy="100" r="50" stroke-opacity=".08" />
+          <circle cx="100" cy="100" r="30" stroke-opacity=".06" />
+          <path d="M100 30 L100 0" stroke-opacity=".06" />
+          <g stroke-opacity=".06">
+            <path d="M100 100 L180 40" />
+            <path d="M100 100 L180 160" />
+            <path d="M100 100 L20 40" />
+            <path d="M100 100 L20 160" />
+            <path d="M100 100 L100 0" />
+          </g>
+        </g>
+      </svg>
+
+      <!-- smaller left web -->
+      <svg class="web small rotate" viewBox="0 0 200 200" preserveAspectRatio="xMidYMid meet">
+        <g stroke="white" stroke-opacity=".9" stroke-width="0.5" fill="none">
+          <circle cx="100" cy="100" r="50" stroke-opacity=".12" />
+          <circle cx="100" cy="100" r="30" stroke-opacity=".08" />
+        </g>
+      </svg>
+
+      <!-- right web -->
+      <svg class="web right" viewBox="0 0 200 200" preserveAspectRatio="xMidYMid meet">
+        <g stroke="white" stroke-opacity=".9" stroke-width="0.5" fill="none">
+          <circle cx="100" cy="100" r="60" stroke-opacity=".10" />
+          <circle cx="100" cy="100" r="35" stroke-opacity=".06" />
+        </g>
+      </svg>
+    </div>
+
+    <!-- swinging SVG actor -->
+    <div class="swinger" id="swinger" aria-hidden="true">
+      <svg class="spidey" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+        <g>
+          <ellipse class="body" cx="32" cy="28" rx="14" ry="18" />
+          <path class="body" d="M12 32 C8 32,6 36,8 40 C10 44,16 46,20 42 C22 40,26 38,32 38 C38 38,42 40,44 42 C48 46,54 44,56 40 C58 36,56 32,52 32"/>
+          <path class="eyes" d="M22 20 Q28 12,34 20 Q40 12,46 20 Q40 26,34 20 Q28 26,22 20"/>
+        </g>
+      </svg>
+      <div class="web-line" aria-hidden="true"></div>
+    </div>
+
+    <div class="title">
+      <h1 id="me">Your Name</h1>
+      <p class="tag">"With great code comes great responsibility"</p>
+    </div>
   </header>
 
-  <section id="about" class="fade-in">
-    <h2>About Me</h2>
-    <p>
-      I’m a passionate web developer, blending creativity and code like Spider-Man swings between skyscrapers. I love building web experiences that are fast, responsive, and visually stunning.
-    </p>
-  </section>
+  <main class="container">
+    <section id="about" class="reveal">
+      <h2>About Me</h2>
+      <div class="row">
+        <div class="card">
+          <p>I build interactive web experiences that balance performance with delightful visuals. I work with HTML, CSS, JS, and occasionally summon a little bit of machine learning when the project calls for it.</p>
+        </div>
+        <div class="card">
+          <p>Skills: HTML · CSS · JavaScript · React · Node.js · Accessibility · Performance</p>
+        </div>
+      </div>
+    </section>
 
-  <section id="projects" class="slide-up">
-    <h2>Projects</h2>
-    <div class="project-card">
-      <h3>Web-Slinging App</h3>
-      <p>An interactive app that lets users swing between pages in style.</p>
-    </div>
-    <div class="project-card">
-      <h3>Spider-Sense AI</h3>
-      <p>A machine learning project to detect threats before they happen.</p>
-    </div>
-  </section>
+    <section id="projects" class="reveal">
+      <h2>Projects</h2>
+      <div class="project-grid">
+        <div class="card">
+          <div class="thumb">Web-Slinging App</div>
+          <p>Animated navigation that mimics swinging between pages.</p>
+        </div>
+        <div class="card">
+          <div class="thumb">Spider-Sense AI</div>
+          <p>A prototype that predicts user actions to prefetch resources.</p>
+        </div>
+        <div class="card">
+          <div class="thumb">Portfolio 2025</div>
+          <p>A single-page portfolio with motion and accessibility in mind.</p>
+        </div>
+      </div>
+    </section>
 
-  <section id="contact" class="fade-in">
-    <h2>Contact</h2>
-    <p>Email: <a href="mailto:srun12324@gmail.com">srun12324@gmail.com</a></p>
-  </section>
+    <section id="contact" class="reveal contact">
+      <h2>Contact</h2>
+      <p>Drop me a line: <a class="mail" href="mailto:you@example.com">you@example.com</a></p>
+    </section>
+  </main>
 
   <footer>
-    <p>© 2025 Your Name — Inspired by Spider-Man</p>
+    © 2025 Your Name — Inspired by Spider-Man
   </footer>
+
+  <script>
+    // reveal on scroll
+    const obs = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting) e.target.classList.add('visible')
+      })
+    },{threshold:.12})
+    document.querySelectorAll('.reveal').forEach(el=>obs.observe(el))
+
+    // make the swinger follow horizontal mouse movement a bit (subtle)
+    const swinger = document.getElementById('swinger')
+    window.addEventListener('mousemove', (ev)=>{
+      const x = ev.clientX / window.innerWidth
+      const offset = (x - 0.5) * 120
+      swinger.style.transform = `translateX(-50%) rotate(${ -25 + offset/2 }deg)`
+    })
+  </script>
 </body>
 </html>
